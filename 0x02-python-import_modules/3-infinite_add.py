@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-#addition
+"""addition"""
 from sys import argv
-sum = 0
+add = 0
 for s in argv[1:]:
-    sum += int(s)
-print("{}".format(sum))
+    add += int(s)
+print("{}".format(add))
