@@ -7,7 +7,7 @@ its nqueens backtracking program to print coordinates of n queens
 from sys import argv
 
 if __name__ == "__main__":
-    j = []
+    a = []
     if len(argv) != 2:
         print("Usage: nqueens N")
         exit(1)
@@ -21,12 +21,12 @@ if __name__ == "__main__":
 
     # its initial the answer list
     for i in range(n):
-        j.append([i, None])
+        a.append([i, None])
 
     def already_exists(y):
         """it checks that a queen doesnt already exist in that y value"""
         for x in range(n):
-            if y == j[x][1]:
+            if y == a[x][1]:
                 return True
         return False
 
@@ -36,7 +36,7 @@ if __name__ == "__main__":
             return False
         i = 0
         while(i < x):
-            if abs(j[i][1] - y) == abs(i - x):
+            if abs(a[i][1] - y) == abs(i - x):
                 return False
             i += 1
         return True
@@ -44,14 +44,14 @@ if __name__ == "__main__":
     def clear_a(x):
         """it clears d answers from point of failure on"""
         for i in range(x, n):
-            j[i][1] = None
+            a[i][1] = None
 
     def nqueens(x):
         """its recursive backtracking a func to find the solution"""
         for y in range(n):
             clear_a(x)
             if reject(x, y):
-                j[x][1] = y
+                a[x][1] = y
                 if (x == n - 1):  # it accepts the solution
                     print(j)
                 else:
